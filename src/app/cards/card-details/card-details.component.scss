@@ -1,0 +1,53 @@
+.container {
+  background-color: #a7f6da;
+  width: 900px;
+  margin: 0 auto;
+  padding: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 10px;
+  border-radius: 6px;
+
+  &-item {
+    background-color: #fdb36a;
+    border: 3px solid #be7fff;
+    border-radius: 6px;
+    padding: 10px 20px;
+
+    &-header {
+     font-size: 17pt;
+      font-weight: 700;
+      color: #7b00ff;
+    }
+
+    &-value {
+      font-size: 14pt;
+      font-weight: 500;
+    }
+  }
+}
+
+.delete-btn {
+  background-color: #fd7e46;
+  border: 1px solid #6c00ff;
+  border-radius: 6px;
+  margin-top: 50px;
+  font-size: 20px;
+  color: #46201d;
+  cursor: pointer;
+}
+
+.back-btn {
+  background-color: #89c1f8;
+  border: 1px solid #6c00ff;
+  border-radius: 6px;
+  margin-top: 50px;
+  font-size: 20px;
+  color: #46201d;
+  cursor: pointer;
+  height: 50px;
+}
+
+btn {
+  width: 200px;
+}

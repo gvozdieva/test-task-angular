@@ -1,0 +1,13 @@
+<nav class="navbar">
+  <a routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" routerLink="/"><p>Home</p></a>
+  <a routerLinkActive="active" routerLink="/cards-list"><p>Cards List</p></a>
+  <p class="date">{{ date | date }}</p>
+</nav>
+
+<div class="container">
+  <div class="card">
+
+    <router-outlet></router-outlet>
+
+  </div>
+</div>

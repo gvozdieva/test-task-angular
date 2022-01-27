@@ -1,0 +1,11 @@
+<div class="container">
+    <div *ngFor="let card of cardsList" class="card">
+      <a [routerLink]="['/cards-details/', card.id]">
+        <card-item
+          [id]="card.id"
+          [title]="card.title"
+        ></card-item>
+      </a>
+    </div>
+</div>
+

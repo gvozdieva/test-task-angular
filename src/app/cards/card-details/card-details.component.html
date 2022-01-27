@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="container-item">
+    <p class="container-item-header">Card title</p>
+    <p class="container-item-value">{{ card.title }}</p>
+  </div>
+
+  <div class="container-item">
+    <p class="container-item-header">Card body</p>
+    <p class="container-item-value">{{ card.body }}</p>
+  </div>
+
+  <div class="container-item">
+    <p class="container-item-header">Card Id</p>
+    <p class="container-item-value">{{ card.id }}</p>
+  </div>
+
+  <div class="container-item">
+    <p class="container-item-header">Card user Id</p>
+    <p class="container-item-value">{{ card.userId }}</p>
+  </div>
+  <button class="delete-btn btn" type="button" (click)="onDelete()">Delete Card</button>
+  <button routerLink="/cards-list" class="back-btn btn" type="button">Back to Cards List</button>
+</div>
+
