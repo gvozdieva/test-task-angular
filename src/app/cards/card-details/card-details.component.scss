@@ -3,6 +3,9 @@
   width: 900px;
   margin: 0 auto;
   padding: 30px;
+}
+
+.cards-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 10px;
@@ -50,4 +53,40 @@
 
 btn {
   width: 200px;
+}
+
+.buttons-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.comments-container {
+  h1 {
+    color: #6c00ff;
+  }
+
+  .comment-item {
+    background-color: rgba(123, 0, 255, 0.17);
+    border-radius: 6px;
+    padding: 10px 70px;
+
+    .comment-detail {
+      display: grid;
+      grid-template-columns: 70px 1fr;
+      grid-gap: 20px;
+
+      .name {
+        color: #590000;
+        font-size: 14pt;
+        font-weight: 600;
+      }
+
+      .value {
+        font-size: 13pt;
+      }
+    }
+  }
 }

@@ -1,24 +1,57 @@
 <div class="container">
-  <div class="container-item">
-    <p class="container-item-header">Card title</p>
-    <p class="container-item-value">{{ card.title }}</p>
+  <div class="cards-container">
+    <div class="cards-container-item">
+      <p class="cards-container-item-header">Card title</p>
+      <p class="cards-container-item-value">{{ card.title }}</p>
+    </div>
+
+    <div class="cards-container-item">
+      <p class="cards-container-item-header">Card body</p>
+      <p class="cards-container-item-value">{{ card.body }}</p>
+    </div>
+
+    <div class="cards-container-item">
+      <p class="cards-container-item-header">Card Id</p>
+      <p class="cards-container-item-value">{{ card.id }}</p>
+    </div>
+
+    <div class="cards-container-item">
+      <p class="cards-container-item-header">Card user Id</p>
+      <p class="cards-container-item-value">{{ card.userId }}</p>
+    </div>
   </div>
 
-  <div class="container-item">
-    <p class="container-item-header">Card body</p>
-    <p class="container-item-value">{{ card.body }}</p>
+  <div class="comments-container">
+    <h1>Card Comments</h1>
+    <div *ngFor="let comment of cardComments">
+      <ul class="comment-item">
+        <li class="comment-detail">
+          <h2 class="name">ID</h2>
+          <p class="value">{{ comment.id }}</p>
+        </li>
+        <li class="comment-detail">
+          <h2 class="name">Name</h2>
+          <p class="value">{{ comment.name }}</p>
+        </li>
+        <li class="comment-detail">
+          <h2 class="name">Body</h2>
+          <p class="value">{{ comment.body }}</p>
+        </li>
+        <li class="comment-detail">
+          <h2 class="name">Email</h2>
+          <p class="value">{{ comment.email }}</p>
+        </li>
+        <li class="comment-detail">
+          <h2 class="name">Post Id</h2>
+          <p class="value">{{ comment.postId }}</p>
+        </li>
+      </ul>
+    </div>
   </div>
 
-  <div class="container-item">
-    <p class="container-item-header">Card Id</p>
-    <p class="container-item-value">{{ card.id }}</p>
+  <div class="buttons-group">
+    <button class="delete-btn btn" type="button" (click)="onDelete()">Delete Card</button>
+    <button routerLink="/cards-list" class="back-btn btn" type="button">Back to Cards List</button>
   </div>
-
-  <div class="container-item">
-    <p class="container-item-header">Card user Id</p>
-    <p class="container-item-value">{{ card.userId }}</p>
-  </div>
-  <button class="delete-btn btn" type="button" (click)="onDelete()">Delete Card</button>
-  <button routerLink="/cards-list" class="back-btn btn" type="button">Back to Cards List</button>
 </div>
 

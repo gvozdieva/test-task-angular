@@ -28,22 +28,18 @@ export class CardDetailsComponent implements OnInit {
     this.route.params.subscribe((params: Params) => {
       this.cardId = +params['id'];
 
-      this.cardDetailsRequest = this.http.get(`https://jsonplaceholder.typicode.com/posts/${this.cardId}`)
-        .subscribe(response => {
-          console.log('cardLoadedData!!!!', response);
-          this.card = response;
-        })
-
-      this.cardCommentsRequest = this.http.get(`https://jsonplaceholder.typicode.com/posts/${this.cardId}/comments`)
-        .subscribe(response => {
-          console.log('CardCommentsData!!!', response);
-          this.cardComments = response;
-        })
-
       forkJoin({
-        sourceOne: of(this.http.get(`https://jsonplaceholder.typicode.com/posts/${this.cardId}`))
-
-        // sourceTwo: of(this.cardCommentsRequest)
+        sourceOne: of(this.http.get(`https://jsonplaceholder.typicode.com/posts/${this.cardId}`)
+          .subscribe(response => {
+            console.log('cardLoadedData!!!!', response);
+            this.card = response;
+          })
+        ),
+        sourceTwo: of(this.http.get(`https://jsonplaceholder.typicode.com/posts/${this.cardId}/comments`)
+          .subscribe(response => {
+            console.log('CardCommentsData!!!', response);
+            this.cardComments = response;
+          }))
       })
     })
   }
@@ -52,5 +48,4 @@ export class CardDetailsComponent implements OnInit {
     this.CardSrv.deleteCard(this.cardId);
     this.router.navigate(['/cards-list']);
   }
-
 }
