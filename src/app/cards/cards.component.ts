@@ -16,7 +16,6 @@ export class CardsComponent implements OnInit {
 
   ngOnInit() {
     console.log('cardsIdList');
-    console.log(this.cardsList);
     this.cardsSrv.dataLoaded.subscribe((status) => {
       if (status) {
         this.cardsList = this.cardsSrv.cardsList;

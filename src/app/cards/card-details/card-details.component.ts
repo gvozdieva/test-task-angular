@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {CardsService} from "../../cards.service";
 import {HttpClient} from "@angular/common/http";
+import {delay, forkJoin, of} from "rxjs";
 
 @Component({
   selector: 'card-details',
@@ -12,6 +13,9 @@ export class CardDetailsComponent implements OnInit {
   public card: any;
   // @ts-ignore
   public cardId: number;
+  public cardDetailsRequest: any;
+  public cardCommentsRequest: any;
+  public cardComments: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -23,11 +27,24 @@ export class CardDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
       this.cardId = +params['id'];
-      this.http.get(`https://jsonplaceholder.typicode.com/posts/${this.cardId}`)
+
+      this.cardDetailsRequest = this.http.get(`https://jsonplaceholder.typicode.com/posts/${this.cardId}`)
         .subscribe(response => {
-          console.log('response!!', response);
+          console.log('cardLoadedData!!!!', response);
           this.card = response;
         })
+
+      this.cardCommentsRequest = this.http.get(`https://jsonplaceholder.typicode.com/posts/${this.cardId}/comments`)
+        .subscribe(response => {
+          console.log('CardCommentsData!!!', response);
+          this.cardComments = response;
+        })
+
+      forkJoin({
+        sourceOne: of(this.http.get(`https://jsonplaceholder.typicode.com/posts/${this.cardId}`))
+
+        // sourceTwo: of(this.cardCommentsRequest)
+      })
     })
   }
 
